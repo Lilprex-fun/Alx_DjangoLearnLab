@@ -29,6 +29,12 @@ class LibraryDetailView(DetailView):
     template_name = 'relationship_app/library_detail.html'
     context_object_name = 'library'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Assuming Book has a ForeignKey to Library named 'library'
+        context['books'] = Book.objects.filter(library=self.object)
+        return context
+
 
 # ---------- AUTHENTICATION VIEWS ----------
 
