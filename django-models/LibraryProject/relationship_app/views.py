@@ -4,7 +4,10 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Book, Library, UserProfile  # make sure UserProfile is imported
+from .models import Book 
+from .models import Library
+from .models import UserProfile
+  # make sure UserProfile is imported
 
 
 # ---------- BOOK & LIBRARY VIEWS ----------
