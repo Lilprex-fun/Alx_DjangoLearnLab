@@ -70,17 +70,17 @@ def is_member(user):
 
 
 # Role-based views
-@user_passes_test(is_admin)
+@user_passes_test(lambda u: hasattr(u, 'userprofile') and u.userprofile.role == 'Admin', login_url='login') 
 def admin_view(request):
     return render(request, 'relationship_app/admin_view.html')
 
 
-@user_passes_test(is_librarian)
+@user_passes_test(lambda u: hasattr(u, 'userprofile') and u.userprofile.role == 'Librarian', login_url='login')
 def librarian_view(request):
     return render(request, 'relationship_app/librarian_view.html')
 
 
-@user_passes_test(is_member)
+@user_passes_test(lambda u: hasattr(u, 'userprofile') and u.userprofile.role == 'Member', login_url='login')
 def member_view(request):
     return render(request, 'relationship_app/member_view.html')
 
