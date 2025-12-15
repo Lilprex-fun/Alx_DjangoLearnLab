@@ -7,7 +7,7 @@ from .views import (
 )  # Class-based view for a specific library
 from .views import add_book
 from .views import edit_book
-from .views import delete_book
+from .views import delete_book 
 urlpatterns = [
     # Function-based view: List all books
     path('books/', list_books, name='list_books'),
@@ -25,9 +25,10 @@ urlpatterns = [
     path('member-view/', member_view, name='member_view'),
 
     # ---------- SECURED BOOK VIEWS ----------
-    path('books/add/', add_book, name='add_book'),
-    path('books/<int:pk>/edit/', edit_book, name='edit_book'),
-    path('books/<int:pk>/delete/', delete_book, name='delete_book'),
+    path('add_book/', add_book, name='add_book'),
+    path('edit_book/<int:pk>/', edit_book, name='edit_book'),
+    path('delete_book/<int:pk>/', delete_book, name='delete_book'),
+ 
 ]
 
 
