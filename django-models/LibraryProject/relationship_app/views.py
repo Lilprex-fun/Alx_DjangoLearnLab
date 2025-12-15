@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Book 
 from .models import Library
 from .models import UserProfile
+from.views import list_books , LibraryDetailView
   # make sure UserProfile is imported
 
 
