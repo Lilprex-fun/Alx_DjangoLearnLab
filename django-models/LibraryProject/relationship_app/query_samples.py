@@ -3,9 +3,16 @@ from typing import Iterable, Optional
 
 
 def get_books_by_author(author_identifier) -> Iterable[Book]:
-    if isinstance(author_identifier, int):
-        return Book.objects.filter(author_id=author_identifier)
-    return Book.objects.filter(author__name=author_identifier)
+    try:
+     
+        if isinstance(author_identifier, int):
+              author = Author.objects.get(id=author_identifier)
+        else:
+              author_name = author_identifier
+              author = Author.objects.get(name=author_name)   
+        return Book.objects.filter(author=author)
+    except Author.DoesNotExist:
+        return Book.objects.none()
 
 
 def list_all_books_in_library(library_identifier) -> Iterable[Book]:
