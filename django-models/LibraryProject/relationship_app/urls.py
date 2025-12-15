@@ -1,11 +1,13 @@
 from django.urls import path
 from .views import list_books      # Function-based view for listing all books
 from .views import LibraryDetailView
-from  .views import (
+from .views import (
     register, LoginView, LogoutView,
-    admin_view, librarian_view, member_view, add_book, edit_book, delete_book  
+    admin_view, librarian_view, member_view, 
 )  # Class-based view for a specific library
-
+from .views import add_book
+from .views import edit_book
+from .views import delete_book
 urlpatterns = [
     # Function-based view: List all books
     path('books/', list_books, name='list_books'),
