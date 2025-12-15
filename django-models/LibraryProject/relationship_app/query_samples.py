@@ -34,6 +34,6 @@ def get_librarian_for_library(library_identifier) -> Optional[Librarian]:
         else:
             library_name = library_identifier
             library = Library.objects.get(name=library_name)
-        return library.librarian
+        return Librarian.objects.get(library=library)   
     except (Library.DoesNotExist, Librarian.DoesNotExist):
         return None
