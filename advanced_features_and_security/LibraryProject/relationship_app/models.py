@@ -17,7 +17,7 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    library = models.ForeignKey('Library', on_delete=models.CASCADE)
+    library = models.ForeignKey('Library', on_delete=models.CASCADE, default=1)
 
     class Meta:
         permissions = [
